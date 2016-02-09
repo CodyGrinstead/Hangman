@@ -34,8 +34,12 @@ def currentHangman(life):
 #reapeat till life is 0 or word is guessed
 #ask if user wants to play again
 
-wordListEasy=['fox','cat','dog','mouse','ant','desk','chair','man','woman','phone']
-wordListHard=['jazz','jinx','blizzard','quiz','house','buzzer','cozy','rose','daisy','dinner']
+wordListEasy=['fox','cat','dog','mouse','ant','desk','chair','man','woman','phone','sun','ghost',
+'flower','banana','book','light','snake','apple','socks','smile']
+wordlistNormal=['horse','door','song','trip','backbone','bomb','round','treasure','garbage','park',
+'pirate','pie','ski','state','whistle','place','baseball','coal','queen','dominoes','photograph']
+wordListHard=['jazz','jinx','blizzard','quiz','house','buzzer','cozy','rose','daisy','dinner','important',
+'baggage','password','newsletter','bookend','pharmacist','catalog','vegetarian','neighborhood','vitamin']
 
 def game(difficulty):
 	life=8
@@ -88,6 +92,7 @@ def game(difficulty):
 		if(playagain=='y'):
 			return True	
 		else:
+			print("Good bye")
 			return False
 	else:
 		currentHangman(0)
@@ -99,9 +104,20 @@ def game(difficulty):
 			print("Good bye")
 			return False
 		
-play=True	
+play=True
 while(play==True):
-	play=game(wordListEasy)
+	print("Welcome to Hangman")
+	difficultyl=''
+	difficultyl=input("Please select a difficulty.\n Easy, Normal, Hard: (e/n/h)")
+	difficulty=difficultyl.lower()
+	if(difficulty == 'e'):
+		play=game(wordListEasy)
+	elif(difficulty == 'n'):
+		play=game(wordlistNormal)
+	elif(difficulty == 'h'):
+		play=game(wordListHard)
+	else:
+		print("Please select a difficulty, use 'e' 'n' or 'h' to select")
 
 	
 	
